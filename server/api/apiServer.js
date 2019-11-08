@@ -6,15 +6,14 @@ const session = require('express-session');
 const app = new Express();
 var RedisStore = require('connect-redis')(session);
 const port = config.apiPort;
-import AlipaySdk from 'alipay-sdk';
-import fs from 'fs';
-
+import { api, ApiCall } from '../apicall';
 
 const options = {
     host: config.redis.host,
     port: config.redis.port,
     db: config.redis.db
 };
+
 
 
 console.log('process.env.NODE_ENV:' + process.env.NODE_ENV);
@@ -52,9 +51,8 @@ app.listen(port, function (err) {
     }
 });
 
+app.get('/api/c', function (req, res, next) {
 
+    return ApiCall(req, res, api.validcode,{ method:'get'});
 
-const alipaySdk = new AlipaySdk({
-    appId: '2019103068796057',
-    privateKey: fs.readFileSync('./private-key.pem', 'ascii'),
 });
