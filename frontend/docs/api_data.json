@@ -1,0 +1,98 @@
+[
+  {
+    "type": "get",
+    "url": "/token/clientrsa.html",
+    "title": "B交换公钥并返回CSRF✔",
+    "description": "<p>根据服务器端公钥解密客户端公钥，并且返回客户端CSRF令牌</p>",
+    "version": "1.0.0",
+    "group": "AsscessToken",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "pubkey2",
+            "description": "<p>客户端随机生成的公钥（用服务器端的公钥加密）</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response",
+          "content": "1qgNgou2-BAF6FDSnb2a3vysGYkagZXhjgYo",
+          "type": "string"
+        }
+      ]
+    },
+    "filename": "server/common/RSA/csrf/index.js",
+    "groupTitle": "AsscessToken",
+    "name": "GetTokenClientrsaHtml"
+  },
+  {
+    "type": "get",
+    "url": "/cc",
+    "title": "测试✔",
+    "description": "<p>前端主入口</p>",
+    "version": "1.0.0",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "Success-Response:\n跳转至前端活动页面……",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "Error-Response:\n跳转至前端Error页面……",
+          "type": "json"
+        }
+      ]
+    },
+    "group": "FrontEnd",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "customerid",
+            "description": "<p>客户编号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "accode",
+            "description": "<p>数码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "timestamp",
+            "description": "<p>时间戳</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "sign",
+            "description": "<p>签名,加密方式<code>md5(customerid+accode+token+timestamp)</code>；token为约定的值</p>"
+          }
+        ]
+      }
+    },
+    "filename": "server/api/apiServer.js",
+    "groupTitle": "FrontEnd",
+    "name": "GetCc"
+  }
+]

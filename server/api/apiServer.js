@@ -51,6 +51,24 @@ app.listen(port, function (err) {
     }
 });
 
+/**
+ * @api {get} /cc 测试✔
+ * @apiDescription 前端主入口
+ * @apiVersion 1.0.0
+ * @apiSuccessExample {json}
+ *      Success-Response:
+ *      跳转至前端活动页面……
+ * 
+ * @apiErrorExample {json} 
+ *      Error-Response:
+ *      跳转至前端Error页面……
+ * 
+ * @apiGroup FrontEnd
+ * @apiParam {string} customerid  客户编号
+ * @apiParam {string} accode 数码
+ * @apiParam {string} timestamp 时间戳
+ * @apiParam {string} sign 签名,加密方式`md5(customerid+accode+token+timestamp)`；token为约定的值
+ */
 app.get('/api/c', function (req, res, next) {
 
     return ApiCall(req, res, api.validcode,{ method:'get'});

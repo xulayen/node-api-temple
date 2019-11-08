@@ -1,0 +1,21 @@
+{
+    "name": "项目名称",
+    "version": "1.0.0",
+    "description": "描述",
+    "title": "文档标题",
+    "url": "http://10.20.26.19:8012/api",
+    "header": {
+        "title": "关于文档",
+        "filename": "./about.md"
+    },
+    "footer": {
+        "title": "系统状态",
+        "filename": "./statecode.md"
+    },
+    "order": [
+        "Error",
+        "Define",
+        "PostTitleAndError",
+        "PostError"
+    ]
+}
